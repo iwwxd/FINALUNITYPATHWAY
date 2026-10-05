@@ -18,9 +18,13 @@ public class Collectible : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        // Destroy the collectible
-        Destroy(gameObject);
-        // instantiate the particle effect
-        Instantiate(onCollectEffect, transform.position, transform.rotation);
+        if (other.CompareTag("Player"))
+        {
+            // Destroy the collectible
+            Destroy(gameObject);
+            // instantiate the particle effect
+            Instantiate(onCollectEffect, transform.position, transform.rotation);
+        }
+       
     }
 }
